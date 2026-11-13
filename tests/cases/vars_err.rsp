@@ -1,0 +1,28 @@
+rpn: line 2: invalid name (store 2)
+1
+rpn: line 3: invalid name (store 2x)
+1
+rpn: line 4: invalid name (store a-b)
+1
+rpn: line 5: invalid name (store dup)
+1
+rpn: line 6: invalid name (store drop)
+1
+rpn: line 7: invalid name (store sin)
+1
+rpn: line 8: undefined name (recall nope)
+1
+rpn: line 9: unknown command (nope)
+1
+rpn: line 10: undefined name (store+ q)
+1
+1
+(1.0,2.0)
+rpn: line 13: division by zero (store/ v)
+0
+(1.0,2.0)
+(1.0,2.0)
+(2.0,2.0)
+(2.0,2.0)
+rpn: line 18: unknown command (v)
+(2.0,2.0)

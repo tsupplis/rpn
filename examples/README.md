@@ -1,6 +1,6 @@
 # Examples
 
-Run one with `rpn examples/name.rpn`. Each has a `name.out` with the expected output, and `make test` runs them all.
+Run one with `rpn examples/name.rpn`. Each has a `name.rsp` with the expected output, and `make test` runs them all.
 
 | File | Shows | Result to expect |
 |---|---|---|

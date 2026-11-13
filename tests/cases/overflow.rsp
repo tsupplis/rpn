@@ -1,0 +1,21 @@
+rpn: line 1: integer overflow (+)
+1
+rpn: line 2: integer overflow (*)
+2
+rpn: line 3: integer overflow (neg)
+-9223372036854775808
+rpn: line 4: integer overflow (abs)
+-9223372036854775808
+rpn: line 5: integer overflow (/)
+-1
+rpn: line 6: integer overflow (9223372036854775808)
+-1
+rpn: line 7: integer overflow (sq)
+3037000500
+rpn: line 8: integer overflow (pow)
+63
+4611686018427387904
+rpn: line 10: real overflow (1e999)
+4611686018427387904
+rpn: line 11: real overflow (*)
+10

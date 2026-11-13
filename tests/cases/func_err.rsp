@@ -1,0 +1,37 @@
+rpn: line 6: stack underflow (local b)
+7
+7
+rpn: line 14: division by zero (/)
+0
+rpn: line 15: unknown command (a)
+0
+3
+3
+rpn: line 32: label out of scope (goto glob)
+rpn: line 33: label out of scope (goto inner)
+rpn: line 37: undefined name (goto nowhere)
+rpn: line 39: invalid name (function dup)
+rpn: line 40: invalid name (function 3x)
+rpn: line 41: duplicate name (function two)
+rpn: line 43: invalid name (function v)
+rpn: line 44: invalid name (store two)
+1
+rpn: line 46: bad argument (function two)
+1
+rpn: line 47: bad argument (function })
+1
+rpn: line 48: bad argument (store b)
+1
+rpn: line 49: bad argument (local })
+1
+rpn: line 52: not valid here (program or function inside a block)
+rpn: line 53: not valid here (program or function inside a block)
+rpn: line 57: not valid here (local outside a function)
+rpn: line 59: not valid here (local z)
+1
+rpn: line 62: duplicate name (local x)
+rpn: line 64: duplicate name (label same)
+1
+rpn: line 71: call depth exceeded (forever)
+1
+1

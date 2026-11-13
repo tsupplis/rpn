@@ -1,0 +1,9 @@
+rpn: line 1: unknown command (foo)
+rpn: line 2: unknown command (bar)
+2
+rpn: line 3: unknown command (1.5.2)
+2
+rpn: line 4: unknown command (--5)
+2
+rpn: line 5: unknown command (1e)
+2

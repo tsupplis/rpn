@@ -1,0 +1,10 @@
+rpn: line 1: division by zero (/)
+0
+5
+rpn: line 3: division by zero (mod)
+0
+rpn: line 4: division by zero (inv)
+0
+rpn: line 5: domain error (sqrt)
+-1
+0

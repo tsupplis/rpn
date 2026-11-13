@@ -1,0 +1,6 @@
+rpn: line 1: bad argument (setflag 32)
+rpn: line 2: bad argument (setflag -1)
+rpn: line 3: bad argument (setflag 1.5)
+rpn: line 4: bad argument (setflag x)
+rpn: line 5: bad argument (flag-set? 99)
+rpn: line 6: bad argument (clearflag 2.0)

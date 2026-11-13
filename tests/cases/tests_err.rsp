@@ -1,0 +1,10 @@
+rpn: line 2: stack underflow (x=0?)
+rpn: line 3: stack underflow (x=y?)
+1
+rpn: line 4: wrong value type (x<0?)
+(1.0,2.0)
+rpn: line 5: wrong value type (x<y?)
+3
+rpn: line 6: wrong value type (x>=y?)
+(1.0,2.0)
+(1.0,2.0)

@@ -1,0 +1,11 @@
+rpn: unknown option '-z'
+usage: rpn [-h] [-v] [-q] [-s N] [-l file] [-x file] [file ...]
+  -h       show this text
+  -v       show the version
+  -q       do not echo the top of the stack after each line
+  -s N     maximum stack depth (default 100)
+  -l file  load a file silently and carry on
+  -x file  execute a file, then stop (stdin is not read)
+Options are case-insensitive.
+Commands exit (status = top of stack, 0..255) and quit end the run.
+Reads standard input when no file (or "-") is given.

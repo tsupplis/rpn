@@ -1,0 +1,32 @@
+program {
+  label { count }
+  store { n }
+  label { loop }
+  n x=0? goto { done }
+  drop 1 store- { n } goto { loop }
+  label { done }
+  drop return
+}
+function { hyp
+  local { a b }
+  a sq b sq + sqrt
+}
+function { fact
+  local { n }
+  n 2 x>y? goto { base }
+  drop drop n n 1 - fact * return
+  label { base }
+  drop drop 1
+}
+program {
+  label { tail }
+  7
+}
+program {
+  label { a }
+  1 store { v } goto { a }
+}
+program {
+  1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27
+  28 29 30 + + + + + + + + + + + + + + + + + + + + + + + + + + + + +
+}

@@ -1,0 +1,6 @@
+2
+rpn: line 2: stack underflow (drop)
+rpn: line 3: stack underflow (swap)
+rpn: line 4: stack underflow (rolldown)
+rpn: line 5: stack underflow (+)
+0

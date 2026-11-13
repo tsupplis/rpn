@@ -1,0 +1,34 @@
+rpn: line 2: bad argument (store x)
+rpn: line 3: bad argument (store })
+rpn: line 4: bad argument (store b)
+rpn: line 7: bad argument (store b)
+rpn: line 10: bad argument (store recall)
+rpn: line 12: bad argument ({)
+5
+rpn: line 13: not valid here (})
+5
+rpn: line 15: undefined name (goto a)
+5
+rpn: line 16: bad argument (function f)
+5
+rpn: line 17: bad argument (function })
+5
+rpn: line 18: bad argument (local })
+5
+rpn: line 21: not valid here (local y)
+rpn: line 22: bad argument (setflag 2)
+5
+rpn: line 23: bad argument (setflag 40)
+5
+rpn: line 24: bad argument (setflag two)
+5
+rpn: line 26: not valid here (})
+5
+rpn: line 27: bad argument ({)
+5
+5
+3
+3
+3
+1
+2

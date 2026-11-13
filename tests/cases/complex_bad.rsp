@@ -1,0 +1,21 @@
+1
+rpn: line 3: unknown command ((1,2)
+1
+rpn: line 4: unknown command ((1,))
+1
+rpn: line 5: unknown command ((,2))
+1
+rpn: line 6: unknown command ((1,2,3))
+1
+rpn: line 7: unknown command (())
+1
+rpn: line 8: real overflow ((1e999,0))
+1
+rpn: line 9: division by zero (/)
+0
+rpn: line 10: wrong value type (mod)
+3
+rpn: line 11: wrong value type (floor)
+(1.0,2.0)
+rpn: line 12: domain error (ln)
+(0.0,0.0)

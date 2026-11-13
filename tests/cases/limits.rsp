@@ -1,0 +1,16 @@
+rpn: line 12: step limit exceeded (program)
+1
+rpn: line 14: step limit exceeded (program)
+18
+18
+rpn: line 16: call depth exceeded (execute deep)
+18
+rpn: line 17: domain error (steplimit)
+0
+rpn: line 18: domain error (calllimit)
+-5
+rpn: line 19: wrong value type (steplimit)
+2.5
+rpn: line 20: wrong value type (calllimit)
+2.5
+2.5

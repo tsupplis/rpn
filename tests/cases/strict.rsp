@@ -1,0 +1,13 @@
+(0.0,2.0)
+(0.0,2.0)
+rpn: line 4: domain error (sqrt)
+-4
+rpn: line 5: domain error (ln)
+-1
+rpn: line 6: domain error (asin)
+2
+rpn: line 7: domain error (pow)
+0.5
+(0.0,2.0)
+(0.0,2.0)
+(0.0,2.0)

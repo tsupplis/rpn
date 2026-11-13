@@ -6,9 +6,9 @@
 
 # test leftovers
 *.actual
-**/*.out
 
 # editor / OS
 .DS_Store
 *~
 *.swp
+*.o

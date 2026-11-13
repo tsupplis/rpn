@@ -18,8 +18,8 @@ The Makefile works with GNU make and BSD make (no `%` rules, no wildcards).
 | Part | What it runs |
 |---|---|
 | `tests/unit.c` | unit checks against the library, with allocation-failure injection |
-| `tests/cases/*.rpn` | scenarios: the CLI is fed the file, output is compared with `name.out`; `name.rc` holds the expected exit status, `name.args` the options (`@` stands for the cases directory) |
-| `examples/*.rpn` | run like scenarios, with `name.out` next to them |
+| `tests/cases/*.rpn` | scenarios: the CLI is fed the file, output is compared with `name.rsp`; `name.rc` holds the expected exit status, `name.args` the options (`@` stands for the cases directory) |
+| `examples/*.rpn` | run like scenarios, with `name.rsp` next to them |
 | `tests/fuzz.c` | `make fuzz` (in `tests/`, after `make san`): mutated scenarios and random text under the sanitizers; checks the stack bound and that all memory is released |
 | `tests/emu_cmp.sh` | compares native with an Aztec build under emu2 |
 
@@ -28,7 +28,7 @@ The Makefile works with GNU make and BSD make (no `%` rules, no wildcards).
 | `ansi` | `-ansi -pedantic -Wall -Wextra -Werror -O1 -g` |
 | `san` | `-std=c11 -Wall -Wextra -Werror -fsanitize=address,undefined -fno-sanitize-recover=undefined` |
 
-`UPDATE=1 sh run_test.sh ../native/rpn` (in `tests/`) rewrites the `.out` files. Check every one by hand before keeping it.
+`UPDATE=1 sh run_test.sh ../native/rpn` (in `tests/`) rewrites the `.rsp` files. Check every one by hand before keeping it.
 
 ## Aztec C 4.3 (CP/M-86 and DOS)
 

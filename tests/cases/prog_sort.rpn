@@ -1,0 +1,67 @@
+# bubble sort of four variables a b c d with compare-and-exchange
+# subroutines (there is no indirect addressing yet)
+program {
+label { cmp_ab }
+a b -
+x>0?
+xeq { xch_ab }
+drop
+return
+label { cmp_bc }
+b c -
+x>0?
+xeq { xch_bc }
+drop
+return
+label { cmp_cd }
+c d -
+x>0?
+xeq { xch_cd }
+drop
+return
+label { xch_ab }
+a b store { a }
+store { b }
+return
+label { xch_bc }
+b c store { b }
+store { c }
+return
+label { xch_cd }
+c d store { c }
+store { d }
+return
+label { sort4 }
+xeq { cmp_ab }
+xeq { cmp_bc }
+xeq { cmp_cd }
+xeq { cmp_ab }
+xeq { cmp_bc }
+xeq { cmp_ab }
+return
+}
+# pushed in reverse so that "* p" lists a b c d from the top
+4 store { a }
+2 store { b }
+9 store { c }
+1 store { d }
+xeq { sort4 }
+d c b a
+* p
+clear
+9 store { a }
+7 store { b }
+5 store { c }
+3 store { d }
+xeq { sort4 }
+d c b a
+* p
+clear
+# already sorted, and with equal values
+1 store { a }
+1 store { b }
+2 store { c }
+2 store { d }
+xeq { sort4 }
+d c b a
+* p

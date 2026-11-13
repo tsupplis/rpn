@@ -1,0 +1,32 @@
+# the { group } syntax: a command and its group are one atom
+# braces need no spaces around them
+5 store{x}
+recall{x}
+# a group may be spread over lines
+7 store
+{
+  y
+}
+y x +
+clear
+# a test that fails skips the whole atom, group included
+3 1 x=0?
+store { z }
+recall { z }
+clear
+# a test that holds runs it
+0 x=0?
+store { z }
+z
+clear
+# a skipped atom is still read and checked: a bad name in its group is an
+# error even though the store would not have run
+1 x=0?
+store { 2bad }
+# flags take a group too
+setflag{ 4 }
+flag-set? { 4 } 11
+clear
+clearflag { 4 }
+flag-set? { 4 } 12
+13

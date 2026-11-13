@@ -1,0 +1,14 @@
+# build output
+/native/
+/cpm86/
+/dos/
+/private/
+
+# test leftovers
+*.actual
+**/*.out
+
+# editor / OS
+.DS_Store
+*~
+*.swp

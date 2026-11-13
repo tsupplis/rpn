@@ -1,0 +1,50 @@
+# ======================================================================
+#  collatz.rpn - the 3n + 1 problem
+#
+#  Run it:   rpn examples/collatz.rpn
+#
+#  What to observe
+#    - a loop with two different branches (even / odd) and a shared tail.
+#    - the "skip the next atom when the test is false" rule used as an
+#      if / else:   x=0? goto { even }   ... odd code ...   label { even }
+#    - the number of steps is not known in advance: it is the loop that
+#      decides when to stop.
+#
+#  Start from n.  If n is even halve it, otherwise take 3n + 1.  Count
+#  the steps until n reaches 1.  Nobody has proved that every start ends
+#  there, but none is known that does not.
+# ======================================================================
+
+function { collatz
+  local { n }
+  0 local { steps }
+
+  label { loop }
+  n 1 x=y?                    # stack: n 1 -> is n = 1 ?
+  goto { done }
+  drop drop
+
+  n 2 mod x=0?                # remainder of n / 2
+  goto { even }
+  drop                        # odd:  n <- 3n + 1
+  n 3 * 1 +  store { n }
+  goto { counted }
+
+  label { even }
+  drop                        # even: n <- n / 2
+  n 2 /  store { n }
+
+  label { counted }
+  steps 1 +  store { steps }
+  goto { loop }
+
+  label { done }
+  drop drop
+  steps
+}
+
+1  collatz                    # 0
+6  collatz                    # 8    6 3 10 5 16 8 4 2 1
+7  collatz                    # 16
+27 collatz                    # 111  (climbs to 9232 on the way)
+97 collatz                    # 118

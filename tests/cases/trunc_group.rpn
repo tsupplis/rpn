@@ -1,0 +1,6 @@
+# a source that ends inside a { group }: the group is dropped, the stack is kept
+1 2 +
+5
+* p
+store {
+  x

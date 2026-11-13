@@ -1,0 +1,13 @@
+# x^2 + 2x + 5 = 0 has the roots -1 +- 2i.
+# discriminant b^2 - 4ac = -16, half its square root = (0,2)
+# first root: -b/2a + sqrt(disc)/2a
+-1 2 sq 20 - sqrt 2 / + p
+clear
+# second root
+-1 2 sq 20 - sqrt 2 / - p
+clear
+# check: z^2 + 2z + 5 must be 0 for the first root
+(-1,2) sq (-1,2) 2 * + 5 +
+clear
+# the same through the power operator and its inverse
+(-1,2) 2 pow sqrt

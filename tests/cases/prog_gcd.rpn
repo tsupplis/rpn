@@ -1,0 +1,24 @@
+# greatest common divisor by Euclid: a b -> gcd
+program {
+label { gcd }
+store { b }
+store { a }
+label { gcd_loop }
+b x=0?
+goto { gcd_done }
+drop
+a b mod
+b store { a }
+store { b }
+goto { gcd_loop }
+label { gcd_done }
+drop
+a
+return
+}
+48 18 xeq { gcd }
+17 5 xeq { gcd }
+100 75 xeq { gcd }
+7 0 xeq { gcd }
+1071 462 xeq { gcd }
+* p

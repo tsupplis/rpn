@@ -1,0 +1,15 @@
+# trigonometric, inverse and hyperbolic functions
+0 sin
+0 cos
+1 atan
+2 asin
+2 acos
+(0,1) sin
+(0,1) cosh
+1 sinh
+1 asinh
+2 acosh
+0.5 atanh
+2 atanh
+1 atanh
+1000 sinh

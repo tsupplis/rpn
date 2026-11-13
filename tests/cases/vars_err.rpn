@@ -1,0 +1,18 @@
+# invalid names, undefined names, wrong types
+1 store { 2 }
+1 store { 2x }
+1 store { a-b }
+1 store { dup }
+1 store { drop }
+1 store { sin }
+recall { nope }
+nope
+1 store+ { q }
+(1,2) store { v }
+v
+0 store/ { v }
+v
+v 1 store+ { v }
+v
+clearvars
+v

@@ -1,0 +1,19 @@
+# aliases and case: LBL GTO XEQ RTN STO RCL STO+ SF CF FS? FC? DSE ISG
+program {
+LBL { Main }
+3 STO { N }
+LBL { Again }
+N STO+ { Total }
+DSE { N }
+GTO { Again }
+RCL { Total }
+RTN
+}
+0 STO { Total }
+XEQ { MAIN }
+SF { 5 }
+FS? { 5 }
+100
+CF { 5 }
+FC? { 5 }
+200

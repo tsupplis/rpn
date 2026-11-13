@@ -1,0 +1,41 @@
+# functions with locals: "local { a b }" pops the stack, the last name gets
+# the top, so the arguments read in the order they were typed.
+function { hyp
+  local { a b }
+  a sq b sq + sqrt
+}
+3 4 hyp
+6 8 hyp
+1 1 hyp
+clear
+# argument order: 10 3 local { a b } gives a = 10, b = 3
+function { sub
+  local { a b }
+  a b -
+}
+10 3 sub
+3 10 sub
+clear
+# a function is called like any command, also in the middle of a line
+2 3 hyp 5 12 hyp +
+clear
+# locals shadow globals and never change them
+100 store { a }
+function { bump
+  local { a }
+  a 1 + store { a }
+  a
+}
+5 bump
+a
+* p
+clear
+# a local is gone after the return
+function { tmp
+  local { secret }
+  secret 2 *
+}
+21 tmp
+secret
+recall { secret }
+* p

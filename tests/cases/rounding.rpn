@@ -1,0 +1,12 @@
+# rounding functions
+2.5 round
+-2.5 round
+2.9 floor
+-2.1 ceil
+-2.9 trunc
+-2.75 fraction
+1e20 floor
+5 fraction
+(1,2) floor
+pi
+e

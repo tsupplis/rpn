@@ -1,0 +1,21 @@
+# angle modes
+pi 2 / sin
+degrees
+30 sin
+180 sin
+90 cos
+45 tan
+0.5 asin
+1 1 atan2
+90 tan
+grads
+100 sin
+1 atan
+radians
+1 atan
+(0,1) arg
+degrees
+(0,1) arg
+3 4 polar
+p
+rect

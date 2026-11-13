@@ -1,0 +1,6 @@
+setflag { 32 }
+setflag { -1 }
+setflag { 1.5 }
+setflag { x }
+flag-set? { 99 }
+clearflag { 2.0 }

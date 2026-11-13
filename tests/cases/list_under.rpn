@@ -1,0 +1,3 @@
+# a listed line that ends in a name with _ must reload unchanged
+function { twice_ dup + }
+list

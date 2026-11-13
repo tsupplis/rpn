@@ -1,0 +1,75 @@
+# ======================================================================
+#  fibonacci.rpn - Fibonacci numbers, iterative and recursive
+#
+#  Run it:   rpn examples/fibonacci.rpn
+#
+#  What to observe
+#    - function { name ... }   defines a function; calling it is just
+#                              writing its name, like any command.
+#    - local { a b }           pops the stack into named locals.  The LAST
+#                              name gets the top, so arguments read in the
+#                              order they were typed:  3 4 local { a b }
+#                              gives a = 3, b = 4.
+#    - local on a name that is already a local of this call overwrites
+#      it, so   b a b +  local { a b }   is a parallel assignment:
+#      a <- b, b <- a+b, which store cannot express.
+#    - the first binding of a name is a local; a single later update is
+#      a store { n }, which finds the local first and so never creates a
+#      global.  (A store on a name that is NOT a local would.)
+#    - tests (x=0? ...) never touch the stack.  When a test is false the
+#      NEXT atom is skipped ("goto { done }" is a single atom).  So both
+#      paths must drop the tested operand themselves.
+#    - the input line is echoed after it runs: the result is the top of
+#      the stack, shown on the line below the call.
+# ======================================================================
+
+# ---- fibonacci(n), iterative ----------------------------------------
+# fib(0) = 0, fib(1) = 1, fib(n) = fib(n-1) + fib(n-2)
+# Keep two consecutive terms (a, b) and slide them n times.
+function { fibonacci
+  local { n }                 # n   : how many steps are left
+  0 1 local { a b }           # a = fib(0), b = fib(1)
+
+  label { next }
+  n x=0?                      # tests leave n on the stack ...
+  goto { done }               # ... so each path drops it
+  drop
+  b  a b +  local { a b }     # (a, b) <- (b, a + b)
+  n 1 -     store { n }       # n <- n - 1
+  goto { next }
+
+  label { done }
+  drop                        # the n left by the true test
+  a                           # the result
+}
+
+# ---- fib(n), recursive ----------------------------------------------
+# Same function, written as the definition reads.  Every call gets its
+# own n: locals live in a call frame.  It is slow for large n (it
+# recomputes the same terms), which is the point of showing both.
+function { fib_rec
+  local { n }
+  n 2 x>y?                    # stack: n 2   -> is 2 > n ?  (n is 0 or 1)
+  goto { base }
+  drop drop
+  n 1 - fib_rec               # fib(n-1)
+  n 2 - fib_rec               # fib(n-2)
+  +
+  return
+  label { base }
+  drop drop
+  n                           # fib(0) = 0, fib(1) = 1
+}
+
+0  fibonacci                  # 0
+1  fibonacci                  # 1
+10 fibonacci                  # 55
+20 fibonacci                  # 6765
+40 fibonacci                  # 102334155   (fits a 32-bit int)
+
+10 fib_rec                    # 55
+20 fib_rec                    # 6765
+
+# both versions agree: x=y? is true, so the next atom runs
+20 fibonacci 20 fib_rec x=y? 1
+clear

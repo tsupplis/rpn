@@ -1,0 +1,18 @@
+# a failed test skips the next command together with its argument, and the
+# skip crosses line boundaries and blank lines
+1 store { a }
+7 0 x>0?
+store { a }
+
+a
+* p
+clear
+# the skip applies to one command only
+0 x>0?
+5 6
+* p
+clear
+# a true test skips nothing
+1 x>0?
+5 store { a }
+a

@@ -1,0 +1,25 @@
+# Newton's square root: x -> sqrt(x), compared with the built-in sqrt
+program {
+label { nsqrt }
+store { v }
+v 2 / store { g }
+label { nloop }
+v g / g + 2 /
+store { g2 }
+g2 g - abs
+1e-12 x<y?
+goto { nstep }
+drop
+g2
+return
+label { nstep }
+drop
+g2 store { g }
+goto { nloop }
+}
+2 xeq { nsqrt }
+# the difference with the built-in sqrt must be below 1e-10
+# (one line, so that only the verdict is echoed, not the rounding noise)
+2 sqrt - abs 1e-10 - x<0? drop 111
+clear
+144 xeq { nsqrt }

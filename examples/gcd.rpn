@@ -1,0 +1,43 @@
+# ======================================================================
+#  gcd.rpn - greatest common divisor and least common multiple
+#
+#  Run it:   rpn examples/gcd.rpn
+#
+#  What to observe
+#    - Euclid's algorithm: gcd(a, b) = gcd(b, a mod b), until b is 0.
+#    - "b  a b mod  local { a b }" is a parallel assignment, so there is
+#      no temporary variable and no stack juggling (swap, rolldown).
+#    - lcm calls gcd: functions compose like commands.
+#    - integer / integer stays an integer when it divides exactly.
+# ======================================================================
+
+function { gcd
+  local { a b }
+
+  label { again }
+  b x=0?
+  goto { done }
+  drop
+  b  a b mod  local { a b }   # (a, b) <- (b, a mod b)
+  goto { again }
+
+  label { done }
+  drop
+  a
+}
+
+# lcm(a, b) = a * b / gcd(a, b)
+function { lcm
+  local { a b }
+  a b *   a b gcd   /
+}
+
+12 18 gcd                     # 6
+18 12 gcd                     # 6
+17 5  gcd                     # 1   (coprime)
+1071 462 gcd                  # 21  (Euclid's own example)
+0 9 gcd                       # 9
+
+4 6 lcm                       # 12
+21 6 lcm                      # 42
+clear

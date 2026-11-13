@@ -1,0 +1,29 @@
+# program-mode and run-time errors
+label { a }
+return
+stop
+}
+goto { nowhere }
+execute { nowhere }
+program { program { 
+program { 
+label { dup1 }
+label { dup1 }
+}
+program {
+label { ok }
+}
+program {
+1 +
+store { 2 }
+}
+clear
+program {
+goto
+{ dup }
+}
+x=0?
+program {
+sin
+cos
+}

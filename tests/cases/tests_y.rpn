@@ -1,0 +1,26 @@
+# comparisons of x with y (y below x); the stack is never changed
+clear
+3 3 x=y?
+100
+3 4 x=y?
+101
+3 4 x!=y?
+102
+3 3 x!=y?
+103
+5 3 x<y?
+104
+3 5 x<y?
+105
+3 5 x>y?
+106
+5 3 x>y?
+107
+3 3 x<=y?
+108
+4 3 x<=y?
+109
+3 3 x>=y?
+110
+3 4 x>=y?
+111

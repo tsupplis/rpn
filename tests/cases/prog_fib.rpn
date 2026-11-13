@@ -1,0 +1,42 @@
+# fibonacci, iterative and recursive (fib 40 fits a 32-bit int)
+program {
+label { fib }
+store { n }
+0 store { a }
+1 store { b }
+label { fib_loop }
+n x=0?
+goto { fib_done }
+drop
+a b + store { t }
+b store { a }
+t store { b }
+n 1 - store { n }
+goto { fib_loop }
+label { fib_done }
+drop
+a
+return
+label { rfib }
+dup 2 -
+x<0?
+goto { rfib_base }
+drop
+dup 1 -
+xeq { rfib }
+swap 2 -
+xeq { rfib }
++
+return
+label { rfib_base }
+drop
+return
+}
+0 xeq { fib }
+1 xeq { fib }
+10 xeq { fib }
+40 xeq { fib }
+clear
+10 xeq { rfib }
+15 xeq { rfib }
+* p

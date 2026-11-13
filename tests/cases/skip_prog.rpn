@@ -1,0 +1,14 @@
+# the skip flag is cleared when a run ends and when an error occurs
+program {
+label { t }
+0 x>0?
+}
+5 execute { t }
+99
+program {
+label { u }
+0 x>0?
+nosuchvar
+}
+execute { u }
+5

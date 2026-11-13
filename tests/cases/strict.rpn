@@ -1,0 +1,10 @@
+# strict mode: no promotion to complex for real arguments
+-4 sqrt
+strict
+-4 sqrt
+-1 ln
+2 asin
+-8 0.5 pow
+(-4,0) sqrt
+lenient
+-4 sqrt

@@ -1,0 +1,12 @@
+# malformed complex literals are unknown commands; stack is untouched
+1
+(1,2
+(1,)
+(,2)
+(1,2,3)
+()
+(1e999,0)
+(1,2) 0 /
+(1,2) 3 mod
+(1,2) floor
+(0,0) ln

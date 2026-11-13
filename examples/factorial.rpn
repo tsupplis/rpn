@@ -1,0 +1,58 @@
+# ======================================================================
+#  factorial.rpn - n!, iterative and recursive
+#
+#  Run it:   rpn examples/factorial.rpn
+#
+#  What to observe
+#    - a loop made of a label, a test and a goto
+#    - the same problem solved with a loop and with recursion
+#    - integers stay exact: no rounding, until they overflow.  Overflow
+#      is an error, never a silent wrong answer.  Legacy 32-bit builds
+#      stop at 12! = 479001600; a 64-bit build goes on to 20!.  The
+#      examples stay at 12 so that every build prints the same.
+# ======================================================================
+
+# ---- n!, iterative ---------------------------------------------------
+function { factorial
+  local { n }
+  1 local { acc }
+
+  label { again }
+  n 1 x<y?                    # stack: n 1   -> is 1 < n ?  (x is the top)
+  goto { more }               # 1 < n : keep multiplying
+  drop drop
+  acc return                  # n is 0 or 1: done
+
+  label { more }
+  drop drop
+  acc n *  store { acc }      # acc <- acc * n
+  n 1 -    store { n }        # n   <- n - 1
+  goto { again }
+}
+
+# ---- n!, recursive ---------------------------------------------------
+#   0! = 1        n! = n * (n-1)!
+function { fact_rec
+  local { n }
+  n x=0?
+  goto { zero }
+  drop
+  n  n 1 - fact_rec  *        # n * (n-1)!
+  return
+  label { zero }
+  drop 1
+}
+
+0  factorial                  # 1
+1  factorial                  # 1
+5  factorial                  # 120
+10 factorial                  # 3628800
+12 factorial                  # 479001600
+
+0  fact_rec                   # 1
+5  fact_rec                   # 120
+12 fact_rec                   # 479001600
+
+# a ratio of factorials stays exact:  10! / 8! = 90
+10 factorial 8 factorial /
+clear

@@ -1,0 +1,12 @@
+3 4 ENTER SWAP DROP
+1 2 3 4
+rolldown
+rollup
+x<>y
+rdn
+rup
+clear
+lastx
+5 3 -
+lastx
+THREE

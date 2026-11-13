@@ -1,0 +1,60 @@
+# primes: trial division, then count the primes up to a limit
+program {
+label { isprime }
+store { num }
+num 2 -
+x<0?
+goto { notprime }
+drop
+2 store { d }
+label { ploop }
+d d * num -
+x>0?
+goto { yes }
+drop
+num d mod
+x=0?
+goto { notprime }
+drop
+1 store+ { d }
+goto { ploop }
+label { yes }
+drop
+1
+return
+label { notprime }
+drop
+0
+return
+label { countp }
+store { lim }
+0 store { cnt }
+2 store { k }
+label { cloop }
+lim k -
+x<0?
+goto { cdone }
+drop
+k xeq { isprime }
+x=0?
+goto { cnotp }
+drop
+1 store+ { cnt }
+goto { cnext }
+label { cnotp }
+drop
+label { cnext }
+1 store+ { k }
+goto { cloop }
+label { cdone }
+drop
+cnt
+return
+}
+0 xeq { isprime }
+1 xeq { isprime }
+2 xeq { isprime }
+15 xeq { isprime }
+97 xeq { isprime }
+100 xeq { countp }
+* p

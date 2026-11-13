@@ -1,0 +1,8 @@
+# view prints through the output hook
+3 store { a }
+(1,2) store { b }
+2.5 store { c }
+view { a }
+view { b }
+view { c }
+view { nothing }

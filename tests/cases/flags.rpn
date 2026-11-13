@@ -1,0 +1,20 @@
+# flags
+setflag { 3 }
+flag-set? { 3 }
+10
+flag-clear? { 3 }
+20
+clearflag { 3 }
+flag-set? { 3 }
+30
+flag-clear? { 3 }
+40
+sf { 0 }
+fs? { 0 }
+50
+cf { 0 }
+fc? { 0 }
+60
+setflag { 31 }
+flag-set? { 31 }
+70

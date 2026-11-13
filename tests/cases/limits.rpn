@@ -1,0 +1,21 @@
+# runaway guards: step limit and call depth
+program {
+label { spin }
+goto { spin }
+label { deep }
+execute { deep }
+label { count }
+1 +
+goto { count }
+}
+100 steplimit
+goto { spin }
+1
+goto { count }
+5 calllimit
+execute { deep }
+0 steplimit
+-5 calllimit
+2.5 steplimit
+calllimit
+1000000 steplimit

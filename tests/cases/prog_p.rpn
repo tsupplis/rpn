@@ -1,0 +1,7 @@
+# p is a CLI mechanism and cannot be stored in a program; the program
+# stays in program mode so that "}" is still needed
+program {
+label { a }
+1 p
+}
+execute { a }

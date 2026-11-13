@@ -1,0 +1,35 @@
+# program entry stores tokens; nothing runs and nothing is echoed
+1 2
+program {
+label { add3 }
+3 +
+return
+}
+# the program is stored, the stack is untouched
+execute { add3 }
+execute { add3 }
+# aliases: lbl gto xeq rtn
+clear
+program {
+lbl { twice }
+2 *
+rtn
+lbl { main }
+xeq { twice }
+xeq { twice }
+rtn
+}
+5 xeq { main }
+# goto at the top level starts a run, stop ends it
+clear
+program {
+label { skipme }
+10
+stop
+20
+}
+goto { skipme }
+30
+# clearprogram removes everything
+clearprogram
+execute { add3 }

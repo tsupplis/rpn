@@ -1,0 +1,56 @@
+# Side by side: the same routines written with stack juggling and with
+# local.  Each pair is run on the same inputs; a pair that agrees leaves
+# a 1 (x=y? is true, so the next atom runs).  The 1s are summed at the end.
+
+# ---- hypotenuse: a b -> sqrt(a^2 + b^2) -----------------------------
+# juggling: short, but the reader must follow the stack by hand
+program {
+  label { hypj }
+  sq swap sq + sqrt
+  return
+}
+# with local: the formula reads as it is written
+function { hypl
+  local { a b }
+  a sq b sq + sqrt
+}
+3 4 xeq { hypj }
+3 4 hypl
+x=y? 1
+clear
+
+# ---- distance between two points: x1 y1 x2 y2 -> d -------------------
+# juggling: four values, and every step needs a roll or a swap.  Squares
+# make the sign of each difference irrelevant, which the local version
+# does not need to know.
+program {
+  label { distj }
+  rolldown swap rolldown     # y1 y2 x1 x2
+  - sq                       # y1 y2 (x1-x2)^2
+  rolldown - sq +            # (x1-x2)^2 + (y1-y2)^2
+  sqrt
+  return
+}
+# with local: the names carry the meaning
+function { distl
+  local { x1 y1 x2 y2 }
+  x2 x1 - sq   y2 y1 - sq   +   sqrt
+}
+0 0 3 4 xeq { distj }
+0 0 3 4 distl
+x=y? 1
+clear
+1 1 4 5 xeq { distj }
+1 1 4 5 distl
+x=y? 1
+* p
+clear
+
+# ---- discriminant: a b c -> b^2 - 4ac ---------------------------------
+function { discl
+  local { a b c }
+  b sq   4 a * c *   -
+}
+1 -3 2 discl
+1 2 5 discl
+* p

@@ -1,0 +1,72 @@
+# function and local errors
+function { two
+  local { a b }
+  a b +
+}
+7 two
+* p
+clear
+# an error in the middle of a function leaves no local behind
+function { bad
+  local { a }
+  a 0 /
+}
+3 bad
+a
+clear
+1 2 two
+* p
+clear
+# label scope: a global label is not visible in a function, and back
+program {
+  label { glob }
+  1 return
+}
+function { usesglob
+  goto { glob }
+}
+function { haslabel
+  label { inner }
+  2 return
+}
+usesglob
+goto { inner }
+function { nolabel
+  goto { nowhere }
+}
+nolabel
+# name rules for a function
+function { dup }
+function { 3x }
+function { two }
+7 store { v }
+function { v }
+1 store { two }
+# shape errors
+function two
+function { }
+store { a b }
+local { }
+# a block inside a block
+function { open
+  program {
+  function { nested }
+}
+# local is only for function bodies
+program {
+  local { z }
+}
+local { z }
+# a duplicate name in a local list, a duplicate label
+function { lab1
+  local { x x }
+  label { same }
+  label { same }
+}
+# call depth is shared by functions and execute
+function { forever
+  forever
+}
+5 calllimit
+forever
+256 calllimit

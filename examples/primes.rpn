@@ -1,0 +1,79 @@
+# ======================================================================
+#  primes.rpn - prime numbers by trial division
+#
+#  Run it:   rpn examples/primes.rpn
+#
+#  What to observe
+#    - is_prime returns 1 or 0.  Its result is a plain value, so callers
+#      can test it with x=0? like any other number.
+#    - a function can call another function: primes_upto uses is_prime.
+#    - the stack is the output: primes_upto leaves the primes on it, and
+#      "* p" prints the whole stack (top first).  That is the CLI's p
+#      pseudo-operator, so it cannot be stored inside a function.
+#    - the loop test is d*d <= n: a divisor above sqrt(n) would have a
+#      partner below it, so there is nothing more to find.
+# ======================================================================
+
+# ---- is_prime(n) -> 1 or 0 ------------------------------------------
+function { is_prime
+  local { n }
+  n 2 x>y?                    # stack: n 2   -> is 2 > n ?  (n < 2)
+  goto { small }              # 0 and 1 are not prime
+  drop drop
+  2 local { d }               # first candidate divisor
+
+  label { try }
+  n d sq x<=y?                # stack: n d^2 -> is d^2 <= n ?
+  goto { check }
+  drop drop
+  1 return                    # d*d > n and nothing divided n: prime
+
+  label { check }
+  drop drop
+  n d mod x=0?                # remainder zero: d divides n
+  goto { composite }
+  drop
+  d 1 + store { d }           # next candidate
+  goto { try }
+
+  label { composite }
+  drop
+  0 return
+
+  label { small }
+  drop drop
+  0
+}
+
+# ---- primes_upto(n): leaves 2, 3, 5, ... on the stack ------------------
+function { primes_upto
+  local { n }
+  2 local { k }
+
+  label { loop }
+  n k x>y?                    # stack: n k   -> is k > n ?
+  goto { finished }
+  drop drop
+  k is_prime x=0?             # the flag stays: drop it on both paths
+  goto { skip }
+  drop k                      # prime: keep k on the stack
+  goto { advance }
+  label { skip }
+  drop                        # not a prime
+  label { advance }
+  k 1 + store { k }
+  goto { loop }
+
+  label { finished }
+  drop drop
+}
+
+1  is_prime                   # 0
+2  is_prime                   # 1
+91 is_prime                   # 0   (7 * 13)
+97 is_prime                   # 1
+clear
+
+50 primes_upto
+* p                           # 47 43 41 37 31 29 23 19 17 13 11 7 5 3 2
+clear

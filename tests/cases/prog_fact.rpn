@@ -1,0 +1,25 @@
+# factorial: n on the stack, n! left on the stack (12! is the largest that
+# fits a 32-bit int, which is what the legacy compilers use)
+# a test leaves its operand, so each path drops it explicitly
+program {
+label { fact }
+store { n }
+1 store { acc }
+label { fact_loop }
+n x<=0?
+goto { fact_done }
+drop
+n store* { acc }
+n 1 - store { n }
+goto { fact_loop }
+label { fact_done }
+drop
+acc
+return
+}
+0 execute { fact }
+1 execute { fact }
+5 execute { fact }
+10 execute { fact }
+12 execute { fact }
+* p

@@ -1,0 +1,29 @@
+# store pops its value; recall and bare names push it
+5 store { x }
+x
+x x *
+clear
+7 sto { y }
+rcl { y }
+y 3 *
+clear
+# dup first keeps a copy on the stack
+8 dup store { w }
+# storage arithmetic: the variable is the left operand, the top is popped
+10 store { n }
+3 store- { n }
+n
+2 store* { n }
+n
+7 store/ { n }
+n
+1.5 store+ { n }
+n
+clearvars
+# replacing a value keeps one variable
+1 store { z }
+2 store { z }
+z
+# case folding and underscores
+9 store { Big_Name_2 }
+big_name_2

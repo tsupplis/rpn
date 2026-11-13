@@ -1,0 +1,3 @@
+# the -l file ended inside a block: its label is gone, and this input runs
+goto { go }
+5 6 +

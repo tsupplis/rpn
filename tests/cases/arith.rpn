@@ -1,0 +1,15 @@
+3 4 + 2 *
+4 enter 6 * 5 +
+10 3 /
+10 2 /
+7 neg
+-7 abs
+2 10 pow
+9 sqrt
+2 sqrt
+5 sq
+4 inv
+7 3 mod
+-7 3 mod
+7 -3 mod
+200 15 percent

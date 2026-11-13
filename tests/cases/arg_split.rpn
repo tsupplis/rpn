@@ -1,0 +1,10 @@
+# line splitting is not significant: an argument may be on the next line
+5 store
+{ x }
+x
+0 x=0?
+
+77
+1 x=0?
+
+88

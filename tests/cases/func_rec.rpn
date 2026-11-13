@@ -1,0 +1,53 @@
+# recursion: every call has its own locals
+function { fact
+  local { n }
+  n 2 x>y?
+  goto { base }
+  drop drop
+  n n 1 - fact * return
+  label { base }
+  drop drop 1 return
+}
+0 fact
+1 fact
+5 fact
+10 fact
+12 fact
+* p
+clear
+function { fib
+  local { n }
+  n 2 x>y?
+  goto { small }
+  drop drop
+  n 1 - fib n 2 - fib + return
+  label { small }
+  drop drop n return
+}
+0 fib
+1 fib
+2 fib
+10 fib
+20 fib
+* p
+clear
+# Ackermann on small inputs: A(0,n) = n+1, A(1,n) = n+2, A(2,n) = 2n+3
+function { ack
+  local { m n }
+  m x=0?
+  goto { zm }
+  drop
+  n x=0?
+  goto { zn }
+  drop
+  m 1 -  m n 1 - ack  ack return
+  label { zm }
+  drop n 1 + return
+  label { zn }
+  drop m 1 - 1 ack return
+}
+0 5 ack
+1 5 ack
+2 3 ack
+3 3 ack
+* p
